@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elevator to future</title>
+    <link rel="stylesheet" href="stylesheet/elevator.css">
+    <link rel="icon" type="image/x-icon" href="images/key.png">
+</head>
+<body>
+    
+    <img id="splashImage" src="images/splash_image.png" onclick="hideSplashImage()">
+    <img src="images/left door.png" class="left-image" id="leftImage">
+    <img src="images/right door.png" class="right-image" id="rightImage">
+    <img src="images/background.png" class="background-image">
+    <img src="images/light.png" class="light-image" id="light">
+    <img src="images/lightcover.png" class="lightcover-image">
+    <img src="images/arrow.png" class="arrow-image" id="arrow">
+    <img src="images/button 1.png" class="button1-image" id="button1">
+    <img src="images/button 1.png" class="button2-image" id="button2">
+    <img src="images/button 1.png" class="button3-image" id="button3">
+    <img src="images/button 1.png" class="button4-image" id="button4">
+    <img src="images/button 1.png" class="button5-image" id="button5">
+    <img src="images/button 1.png" class="button6-image" id="button6">
+    <img src="images/button 1.png" class="button7-image" id="button7">
+    <img src="images/card1.png" class="card1-image" id="card1">
+    <img src="images/card2.png" class="card2-image" id="card2">
+    <img src="images/card3.png" class="card3-image" id="card3">
+    <img src="images/card4.png" class="card4-image" id="card4">
+    <img src="images/card5.png" class="card5-image" id="card5">
+    <img src="images/card6.png" class="card6-image" id="card6">
+    <img src="images/card7.png" class="card7-image" id="card7">
+
+    <script>
+
+         // Function to hide the splash image
+         function hideSplashImage() {
+            const splashImage = document.getElementById('splashImage');
+            splashImage.style.opacity = 0;
+            setTimeout(function() {
+                splashImage.style.display = 'none';
+            }, 1000); // Hide after 1 second transition
+        }
+        
+        // Get the element with the "light-image" class
+        const light = document.getElementById('light');
+
+        // Set initial opacity and direction
+        let opacity = 1;
+        let direction = -1; // -1 for decreasing, 1 for increasing
+
+        // Function to update opacity every 100 milliseconds
+        function updateOpacity() {
+            opacity += direction * 0.04; // Increase or decrease opacity by 4% (40% of 100)
+            if (opacity <= 0.3 || opacity >= 1) {
+                direction *= -1; // Change direction when reaching 40% or 100%
+            }
+            light.style.opacity = opacity; // Set the opacity of the light-image
+        }
+
+        // Call updateOpacity function every 100 milliseconds
+        setInterval(updateOpacity, 100);
+
+        // Get references to the left-image and right-image elements
+        const leftImage = document.getElementById('leftImage');
+        const rightImage = document.getElementById('rightImage');
+
+        // Variables to track the state of the images
+        let leftMoved = false;
+        let rightMoved = false;
+
+        // Function to move the left-image by 230px
+        function moveLeftImage() {
+            if (!leftMoved) {
+                leftImage.style.left = (parseInt(leftImage.style.left || 0) - 210) + 'px';
+            } else {
+                leftImage.style.left = '';
+            }
+            leftMoved = !leftMoved;
+        }
+
+        // Function to move the right-image by 230px
+        function moveRightImage() {
+            if (!rightMoved) {
+                rightImage.style.left = (parseInt(rightImage.style.left || 0) + 210) + 'px';
+            } else {
+                rightImage.style.left = '';
+            }
+            rightMoved = !rightMoved;
+        }
+
+       // Add event listeners to all buttons to move both left and right images and toggle card visibility
+document.getElementById('button1').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card1');
+    rotateArrow(-84, 62, 714); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button2').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card2');
+    rotateArrow(-60, 68, 712); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button3').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card3');
+    rotateArrow(-34, 70, 708); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button4').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card4');
+    rotateArrow(0, 75, 702); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button5').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card5');
+    rotateArrow(30, 70, 696); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button6').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card6');
+    rotateArrow(56 , 68, 692); // Rotate arrow to -120 degrees and set position
+});
+
+document.getElementById('button7').addEventListener('click', function() {
+    moveLeftImage();
+    moveRightImage();
+    toggleCardVisibility('card7');
+    rotateArrow(80, 64, 691); // Rotate arrow to -120 degrees and set position
+});
+
+// Function to rotate arrow and set its position
+function rotateArrow(degrees, top, left) {
+    const arrow = document.getElementById('arrow');
+    arrow.style.transform = `rotate(${degrees}deg)`;
+    arrow.style.top = `${top}px`; // Set top position
+    arrow.style.left = `${left}px`; // Set left position
+}
+
+// Function to toggle card visibility
+function toggleCardVisibility(cardId) {
+    const cards = document.querySelectorAll('.card1-image, .card2-image, .card3-image, .card4-image, .card5-image, .card6-image, .card7-image');
+    cards.forEach(card => {
+        if (card.id === cardId) {
+            card.style.opacity = 1; // Make the selected card visible
+        } else {
+            card.style.opacity = 0; // Make other cards transparent
+        }
+    });
+}
+
+    </script>
+</body>
+</html>
+

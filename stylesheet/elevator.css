@@ -1,0 +1,100 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; 
+}
+
+.left-image,
+.right-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125%;
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125%;
+}
+
+.light-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125%; 
+}
+
+.lightcover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125%; 
+}
+
+.arrow-image {
+    position: absolute;
+    width: 22px;
+    left: 702px; /* Adjust left position */
+    top: 73px;
+    transform-origin: bottom center; /* Set transform origin to bottom center */ 
+    transition: transform 0.7s ease;
+}
+
+/* Adjust button positioning */
+.button1-image,
+.button2-image,
+.button3-image,
+.button4-image,
+.button5-image,
+.button6-image,
+.button7-image {
+    position: absolute;
+    width: 25px;
+    left: 1190px; /* Adjust horizontal position */
+}
+
+.button1-image { top: 310px; }
+.button2-image { top: 343px; }
+.button3-image { top: 376px; }
+.button4-image { top: 409px; }
+.button5-image { top: 442px; }
+.button6-image { top: 475px; }
+.button7-image { top: 508px; }
+
+.button1-image:hover,
+.button2-image:hover,
+.button3-image:hover,
+.button4-image:hover,
+.button5-image:hover,
+.button6-image:hover,
+.button7-image:hover{
+    position: absolute;
+    width: 29px;
+    left: 1190px; }
+
+
+/* Adjust card positioning */
+.card1-image,
+.card2-image,
+.card3-image,
+.card4-image,
+.card5-image,
+.card6-image,
+.card7-image {
+    position: absolute;
+    top: 268px;
+    left: 505px;
+    width: 422px;
+    z-index: -2;
+}
+
+
